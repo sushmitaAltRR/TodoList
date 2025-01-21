@@ -39,59 +39,59 @@
 
 // export default Input;
 
-import React, { useState } from 'react';
-import { toast } from 'react-toastify';  // Import the toast function
+// import React, { useState } from 'react';
+// import { toast } from 'react-toastify';  
 
-function Input(props) {
-  const [inputText, setInputText] = useState('');
+// function Input(props) {
+//   const [inputText, setInputText] = useState('');
 
-  // Function to handle pressing the Enter key
-  const handleEnterPress = (e) => {
-    if (e.keyCode === 13 && inputText.trim() !== '') {
-      props.addList(inputText);
-      setInputText(''); // Clear input after adding task
+  
+//   const handleEnterPress = (e) => {
+//     if (e.keyCode === 13 && inputText.trim() !== '') {
+//       props.addList(inputText);
+//       setInputText(''); 
 
-      // Show a success toast after adding the task
-      toast.success("Task added successfully!");
-    }
-  };
-
-  // Function to handle Add Task button click
-  const handleAddClick = () => {
-    if (inputText.trim() === '') {
-      // Show a toast notification when the input is empty
-      toast.error("Task box is empty! Please enter a task.");
-    } else {
-      props.addList(inputText);
-      setInputText(''); // Clear input after adding task
-
-      // Show a success toast after adding the task
-      toast.success("Task added successfully!");
-    }
-  };
-
-  return (
-    <div className="mb-4 flex items-center">
-      {/* Shortened text box */}
-      <input
-        type="text"
-        className="p-2 w-4/5 border rounded-l-md"  // Set width of text box to 80% of parent container
-        placeholder="Enter what to do"
-        value={inputText}
-        onChange={(e) => setInputText(e.target.value)} // Update state as user types
-        onKeyDown={handleEnterPress}
-      />
       
-      {/* Button with increased height */}
-      <button
-        onClick={handleAddClick} // Handle the click event here
-        className={`ml-0 p-3 bg-indigo-800 text-white ${inputText.trim() === '' ? 'cursor-not-allowed opacity-50' : 'hover:bg-indigo-700'} rounded-r-md`} // Increased padding to make button taller
-      >
-        +
-      </button>
-    </div>
-  );
-}
+//       toast.success("Task added successfully!");
+//     }
+//   };
 
-export default Input;
+  
+//   const handleAddClick = () => {
+//     if (inputText.trim() === '') {
+      
+//       toast.error("Task box is empty! Please enter a task.");
+//     } else {
+//       props.addList(inputText);
+//       setInputText(''); 
+
+      
+//       toast.success("Task added successfully!");
+//     }
+//   };
+
+//   return (
+//     <div className="mb-4 flex items-center">
+      
+//       <input
+//         type="text"
+//         className="p-2 w-4/5 border rounded-l-md"  
+//         placeholder="Enter what to do"
+//         value={inputText}
+//         onChange={(e) => setInputText(e.target.value)} 
+//         onKeyDown={handleEnterPress}
+//       />
+      
+     
+//       <button
+//         onClick={handleAddClick}
+//         className={`ml-0 p-3 bg-indigo-800 text-white ${inputText.trim() === '' ? 'cursor-not-allowed opacity-50' : 'hover:bg-indigo-700'} rounded-r-md`} // Increased padding to make button taller
+//       >
+//         +
+//       </button>
+//     </div>
+//   );
+// }
+
+// export default Input;
 
