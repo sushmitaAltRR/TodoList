@@ -51,7 +51,7 @@ const handleKeyDown = (e) => {
         // Show error if the Add Task input is empty
         toast.error('Task box is empty! Please enter a task.');
       } else {
-        handleAddClick(); // Add the task if it's not empty
+        handleAddClick();
       }
     } else {
       // Edit task mode
