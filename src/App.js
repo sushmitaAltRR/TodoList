@@ -1,17 +1,15 @@
 
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import TodoApp from './TodoApp'; // Main page where tasks are listed
-import TaskDetail from './components/TaskDetails'; // New page for task details
+import TodoApp from './TodoApp';
+import TaskDetail from './components/TaskDetails';
 
 function App() {
   return (
     <Router>
       <Routes>
-        {/* Main page where tasks are listed */}
         <Route path="/" element={<TodoApp />} />
-        
-        {/* Task details page */}
+
         <Route path="/task/:id" element={<TaskDetail />} />
       </Routes>
     </Router>
@@ -21,4 +19,3 @@ function App() {
 }
 
 export default App;
-
