@@ -1,23 +1,24 @@
 import React, { useState, useEffect } from 'react';
-import Todo from './components/todo'; 
+import Todo from './components/todo';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useNavigate } from 'react-router-dom';
 
 function TodoApp() {
-  const [list, setList] = useState([]); // Store tasks
-  const [editIndex, setEditIndex] = useState(null); // Track the task being edited
-  const [editText, setEditText] = useState(''); // Text for the task being edited
-  const [addText, setAddText] = useState(''); // Text for the Add Task input
+  const [list, setList] = useState([]);
+  const [editIndex, setEditIndex] = useState(null);
+  const [editText, setEditText] = useState('');
+  const [addText, setAddText] = useState('');
   const navigate = useNavigate();
 
-  // Fetch tasks from an API (example: jsonplaceholder)
   useEffect(() => {
     const fetchTasks = async () => {
       try {
-        const response = await fetch('https://jsonplaceholder.typicode.com/todos');
+        const response = await fetch(
+          'https://jsonplaceholder.typicode.com/todos'
+        );
         const data = await response.json();
-        setList(data.slice(0, 10)); // Fetch and store the first 10 tasks
+        setList(data.slice(0, 10));
       } catch (error) {
         toast.error('Error fetching tasks from the server');
       }
@@ -25,14 +26,12 @@ function TodoApp() {
     fetchTasks();
   }, []);
 
-  // Add a new task
   const addList = (inputText) => {
     if (inputText !== '') {
       setList([...list, { title: inputText, id: Date.now() }]);
     }
   };
 
-  // Delete a task
   const deleteItem = (key) => {
     const deletedTask = list[key].title;
     const newListTodo = [...list];
@@ -41,13 +40,11 @@ function TodoApp() {
     toast.success(`Task "${deletedTask}" has been deleted.`);
   };
 
-  // Start editing a task
   const startEdit = (index) => {
     setEditIndex(index);
     setEditText(list[index].title);
   };
 
-  // Save the edited task
   const saveEdit = () => {
     if (editText.trim()) {
       const updatedList = list.map((item, i) =>
@@ -63,7 +60,7 @@ function TodoApp() {
   };
 
   const handleTaskClick = (taskId) => {
-    navigate(`/task/${taskId}`); // Navigate to the task details page
+    navigate(`/task/${taskId}`);
   };
 
   return (
@@ -72,7 +69,6 @@ function TodoApp() {
         <h1 className="text-3xl text-center mb-4">TO-DO LIST</h1>
         <hr className="mb-4" />
 
-        {/* Pass the necessary functions and state to the Todo component */}
         <Todo
           list={list}
           setList={setList}
@@ -84,12 +80,11 @@ function TodoApp() {
           setEditText={setEditText}
           saveEdit={saveEdit}
           addText={addText}
-          setAddText={setAddText} // Pass addText and setAddText
+          setAddText={setAddText}
           handleTaskClick={handleTaskClick}
         />
       </div>
 
-      {/* ToastContainer for showing toasts */}
       <ToastContainer
         position="top-right"
         autoClose={2000}
@@ -106,4 +101,8 @@ function TodoApp() {
 }
 
 export default TodoApp;
+
+
+
+
 

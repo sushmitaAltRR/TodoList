@@ -1,4 +1,3 @@
-//this is 
 import React, { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 
@@ -9,7 +8,9 @@ function TaskDetails() {
   useEffect(() => {
     const fetchTaskDetails = async () => {
       try {
-        const response = await fetch(`https://jsonplaceholder.typicode.com/todos/${id}`);
+        const response = await fetch(
+          `https://jsonplaceholder.typicode.com/todos/${id}`
+        );
         const data = await response.json();
         setTask(data);
       } catch (error) {
@@ -25,14 +26,12 @@ function TaskDetails() {
 
   return (
     <div className="min-h-screen bg-indigo-300 flex flex-col">
-      {/* Navbar Section */}
       <div className="bg-indigo-800 p-4">
         <Link to="/" className="text-white text-sm font-medium hover:underline">
           Back to Task List
         </Link>
       </div>
 
-      {/* Task Detail Section */}
       <div className="flex flex-1 items-center justify-center p-5">
         <div className="max-w-lg w-full bg-indigo-400 p-6 rounded-lg shadow-lg">
           <h1 className="text-3xl text-center mb-4">Task Detail</h1>
@@ -52,3 +51,7 @@ function TaskDetails() {
 }
 
 export default TaskDetails;
+//"homepage": "https://sushmitaAltRR.github.io/TodoList",
+
+
+
