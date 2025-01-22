@@ -52,6 +52,3 @@ function TaskDetails() {
 
 export default TaskDetails;
 //"homepage": "https://sushmitaAltRR.github.io/TodoList",
-
-
-
