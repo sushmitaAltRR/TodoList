@@ -34,9 +34,9 @@ function TaskDetails() {
 
       <div className="flex flex-1 items-center justify-center p-5">
         <div className="max-w-lg w-full bg-indigo-400 p-6 rounded-lg shadow-lg">
-          <h1 className="text-3xl text-center mb-4">Task Detail</h1>
+          <h1 className="text-sm text-center mb-4">Task Detail</h1>
           <div>
-            <h2 className="text-xl">Title: {task.title}</h2>
+            <h2 className="text-sm">Title: {task.title}</h2>
             <p>
               <strong>ID:</strong> {task.id}
             </p>
